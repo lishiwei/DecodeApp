@@ -1,0 +1,4 @@
+include ':imagepicker'
+include ':libzxing'
+include ':app'
+rootProject.name = "DecodeApp"

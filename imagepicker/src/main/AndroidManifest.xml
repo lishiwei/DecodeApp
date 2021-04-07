@@ -1,0 +1,49 @@
+<manifest package="com.image.picker"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+       >
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.decodeapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"
+                tools:replace="android:resource" />
+        </provider>
+
+        <activity
+            android:name="com.imnjh.imagepicker.activity.PhotoPickerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Popup"/>
+
+        <activity
+            android:name="com.imnjh.imagepicker.activity.PickerPreviewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CropTheme"/>
+
+        <activity
+            android:name="com.imnjh.imagepicker.activity.CaptureConfirmActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Picture"/>
+
+        <activity
+            android:name="com.imnjh.imagepicker.activity.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CropTheme"/>
+
+        <activity
+            android:name="com.imnjh.imagepicker.activity.CaptureTempActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Picture"/>
+    </application>
+</manifest>
