@@ -62,7 +62,7 @@
                 android:id="@+id/capture_scan_line"
                 android:layout_width="300dp"
                 android:scaleType="fitXY"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="300dp"
@@ -105,7 +105,6 @@
         android:background="@mipmap/ic_camera"
         android:id="@+id/iv_camera"
         android:layout_marginTop="30dp"
-        android:visibility="gone"
         android:layout_below="@id/capture_container"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"/>

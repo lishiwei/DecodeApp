@@ -169,7 +169,6 @@ public final class CaptureActivity extends AppCompatActivity implements SurfaceH
         tablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                Log.d("aaaaaaa", "onTabSelected: " + tab.getPosition());
                 indicator.setTranslationX(tab.view.getX());
                 handler.setIsDecodingMode(tab.getPosition() == 0);
                 ivCamera.setVisibility(tab.getPosition() == 0 ? View.INVISIBLE : View.VISIBLE);
@@ -225,12 +224,11 @@ public final class CaptureActivity extends AppCompatActivity implements SurfaceH
         scanLine.post(new Runnable() {
             @Override
             public void run() {
-//                scanViewHeight= dip2px(300);
-//
-//                bottomMargin= scanViewHeight;
-//                scanViewLayoutParams = (RelativeLayout.LayoutParams) scanLine.getLayoutParams();
-//                animationHandler.sendEmptyMessageDelayed(0,animationMinus*10);
-//            Log.d(TAG, "run:11111111111 "+scanLine.getHeight());
+                scanViewHeight= dip2px(300);
+
+                bottomMargin= scanViewHeight;
+                scanViewLayoutParams = (RelativeLayout.LayoutParams) scanLine.getLayoutParams();
+                animationHandler.sendEmptyMessageDelayed(0,animationMinus*10);
             }
         });
 
@@ -240,7 +238,7 @@ public final class CaptureActivity extends AppCompatActivity implements SurfaceH
     protected void onResume() {
         super.onResume();
 
-//        initScanView();
+        initScanView();
 
         // CameraManager must be initialized here, not in onCreate(). This is
         // necessary because we don't
@@ -427,7 +425,7 @@ public final class CaptureActivity extends AppCompatActivity implements SurfaceH
         int height = cropHeight * cameraHeight / containerHeight;
 
         /** 生成最终的截取的矩形 */
-        mCropRect = new Rect(0, 0, cameraWidth, cameraHeight);
+        mCropRect = new Rect(0, 0, width, height);
     }
 
     private int getStatusBarHeight() {
